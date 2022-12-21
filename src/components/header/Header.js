@@ -170,13 +170,13 @@ const Header = () => {
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/order-history" end className={activeLink}>
-                    {" "}
+
                     My Orders{" "}
                   </NavLink>
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/" onClick={logoutUser}>
-                    {" "}
+
                     Logout{" "}
                   </NavLink>
                 </ShowOnLogin>
@@ -189,10 +189,11 @@ const Header = () => {
           </nav>
           <ShowOnLogin>
           {cart}
+          </ShowOnLogin>
           <div className={styles["menu-icon"]}>
             <HiOutlineMenuAlt3 size={28} onClick={toggleMenu} />
           </div>
-          </ShowOnLogin>
+          
         </div>
       </header>
     </>
