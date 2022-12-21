@@ -16,7 +16,7 @@ import styles from "./AddProduct.module.scss";
 import { selectProducts } from "../../../redux/slice/productSlice";
 
 const categories = [
-  { id: 1, name: "Laptop" },
+  { id: 1, name: "Laptop" },   
   { id: 2, name: "Electronics" },
   { id: 3, name: "Fashion" },
   { id: 4, name: "Phone" },
