@@ -231,7 +231,7 @@ const CheckoutDetails = () => {
                 placeholder="Phone"
                 required
                 name="phone"
-                value={billingAddress.phone}
+                value={check ? shippingAddress.phone : billingAddress.phone}
                 onChange={(e) => handleBilling(e)}
               />
               <button type="submit" className="--btn --btn-primary">
