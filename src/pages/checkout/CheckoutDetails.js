@@ -55,6 +55,8 @@ const CheckoutDetails = () => {
     navigate("/checkout");
   };
 
+  const [check, setCheck] = useState(false);
+
   return (
     <section>
       <div className={`container ${styles.checkout}`}>
@@ -143,13 +145,22 @@ const CheckoutDetails = () => {
             {/* BILLING ADDRESS */}
             <Card cardClass={styles.card}>
               <h3>Billing Address</h3>
+              <div className="check">
+                <label htmlFor="checkbox"> Same as Shipping Address</label>
+                <input
+                  type="checkbox"
+                  value="false"
+                  name="checkbox"
+                  onChange={() => setCheck(!check)}
+                />
+              </div>
               <label>Recipient Name</label>
               <input
                 type="text"
                 placeholder="Name"
                 required
                 name="name"
-                value={billingAddress.name}
+                value={check ? shippingAddress.name : billingAddress.name}
                 onChange={(e) => handleBilling(e)}
               />
               <label>Address line 1</label>
@@ -158,7 +169,7 @@ const CheckoutDetails = () => {
                 placeholder="Address line 1"
                 required
                 name="line1"
-                value={billingAddress.line1}
+                value={check ? shippingAddress.line1 : billingAddress.line1}
                 onChange={(e) => handleBilling(e)}
               />
               <label>Address line 2</label>
@@ -166,7 +177,7 @@ const CheckoutDetails = () => {
                 type="text"
                 placeholder="Address line 2"
                 name="line2"
-                value={billingAddress.line2}
+                value={check ? shippingAddress.line2 : billingAddress.line2}
                 onChange={(e) => handleBilling(e)}
               />
               <label>City</label>
@@ -175,7 +186,7 @@ const CheckoutDetails = () => {
                 placeholder="City"
                 required
                 name="city"
-                value={billingAddress.city}
+                value={check ? shippingAddress.city : billingAddress.city}
                 onChange={(e) => handleBilling(e)}
               />
               <label>State</label>
@@ -184,7 +195,7 @@ const CheckoutDetails = () => {
                 placeholder="State"
                 required
                 name="state"
-                value={billingAddress.state}
+                value={check ? shippingAddress.state : billingAddress.state}
                 onChange={(e) => handleBilling(e)}
               />
               <label>Postal code</label>
@@ -193,14 +204,18 @@ const CheckoutDetails = () => {
                 placeholder="Postal code"
                 required
                 name="postal_code"
-                value={billingAddress.postal_code}
+                value={
+                  check
+                    ? shippingAddress.postal_code
+                    : billingAddress.postal_code
+                }
                 onChange={(e) => handleBilling(e)}
               />
               COUNTRY INPUT
               <CountryDropdown
                 className={styles.select}
                 valueType="short"
-                value={billingAddress.country}
+                value={check ? shippingAddress.country : billingAddress.country}
                 onChange={(val) =>
                   handleBilling({
                     target: {
